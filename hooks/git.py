@@ -10,6 +10,18 @@ def create_repo():
     p.wait()
 
 
+def check_how_many_commits_exist():
+    p = subprocess.Popen("git rev-list --all --count".split(" "), stdout=subprocess.PIPE)
+    if not p.stdout:
+        return 0
+    output = p.stdout.read().decode("utf-8").strip()
+
+    try:
+        return int(output)
+    except ValueError:
+        return 0
+
+
 def get_commit_id_of_template_repo():
     old_path = os.getcwd()
     os.chdir(os.getenv("PWD", ""))
@@ -18,8 +30,7 @@ def get_commit_id_of_template_repo():
     return commit_id
 
 
-def get_commit_message():
-    commit_message = "Initial commit"
+def get_commit_message(commit_message: str):
     commit_id = get_commit_id_of_template_repo()
 
     if commit_id:
@@ -31,9 +42,20 @@ Source commit: {commit_id[:10]}
     return commit_message
 
 
-def commit_everything():
+def _add_all_files():
     p = subprocess.Popen(["git", "add", "."])
     p.wait()
 
-    p = subprocess.Popen(["git", "commit", "-n", "-m", get_commit_message()])
+
+def create_initial_commit():
+    _add_all_files()
+
+    p = subprocess.Popen(["git", "commit", "-n", "-m", get_commit_message("Initial commit")])
+    p.wait()
+
+
+def create_next_commit():
+    _add_all_files()
+
+    p = subprocess.Popen(["git", "commit", "-n", "-m", get_commit_message("Update template")])
     p.wait()

@@ -4,14 +4,24 @@ from hooks import vscode
 
 if __name__ == "__main__":
     print("Running post-gen hooks...")
-    print(" ▶️ Formatting generated code...")
     try:
+        print(" 🟦 Formatting generated code...")
         formatters.run_formatters()
+        print(" ✅ Formatted!")
     except Exception:  # noqa
         print(" ❌ Failed to format code!")
-    print(" ▶️ Creating git repo...")
-    git.create_repo()
-    print(" ▶️ Commiting all files...")
-    git.commit_everything()
-    print(" ▶️ Copying VSCode default files...")
+    if git.check_how_many_commits_exist() == 0:
+        print(" 🟦 Creating git repo...")
+        git.create_repo()
+        print(" ✅ Created!")
+        print(" 🟦 Committing all updates...")
+        git.create_initial_commit()
+        print(" ✅ Committed!")
+    else:
+        print(" 🟦 Committing all updates...")
+        git.create_next_commit()
+        print(" ✅ Committed!")
+
+    print(" 🟦 Copying VSCode settings...")
     vscode.copy_default_files()
+    print(" ✅ Copied!")
