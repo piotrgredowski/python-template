@@ -4,16 +4,21 @@ My personal Python template for new projects.
 
 ## Pre-requisites
 
-- [cookiecutter](https://github.com/cookiecutter/cookiecutter)
+- [cruft](https://github.com/cruft/cruft/)
+
+```bash
+pip install cruft
+```
 
 ## Usage
 
 ```bash
-cookiecutter https://github.com/piotrgredowski/python-template.git
+cruft https://github.com/piotrgredowski/python-template.git
 ```
 
 ## TODO:
 
+- [ ] Add cruft.
 - [ ] Add docs generation.
 - [ ] Add github workflows.
 - [ ] Add azure pipelines.

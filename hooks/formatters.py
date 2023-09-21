@@ -1,10 +1,8 @@
 import subprocess
-import black
-import ruff
 
 
 def _run_black():
-    black.main(".")
+    subprocess.run(["black", "."])
 
 
 def _run_ruff():
