@@ -1,7 +1,19 @@
 {
-    "workbench.colorCustomizations": {
-        "activityBar.background": "#08323C",
-        "titleBar.activeBackground": "#0C4653",
-        "titleBar.activeForeground": "#F4FCFE"
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#08323C",
+    "titleBar.activeBackground": "#0C4653",
+    "titleBar.activeForeground": "#F4FCFE"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": true,
+      "source.organizeImports.ruff": true
     }
+  },
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true,
+  "ruff.fixAll": true,
+  "ruff.organizeImports": true
 }
