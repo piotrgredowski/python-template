@@ -18,17 +18,19 @@ requires-python = ">= {{ cookiecutter.python_version }}"
 [tool.rye]
 managed = true
 dev-dependencies = [
+    "black>=23.7.0",
+    "mypy>=1.4.1",
+    "pre-commit>=3.3.3",
     "pytest>=7.4.0",
     "pytest-cov>=4.1.0",
-    "black>=23.7.0",
-    "ruff>=0.0.282",
-    "pre-commit>=3.3.3",
-    "mypy>=1.4.1",
     "pytest-mock>=3.11.1",
+    "ruff>=0.0.282",
 ]
 
 [tool.rye.scripts]
 main = { cmd = "python -m src.{{ cookiecutter.package_name }}" }
+# main = { cmd = "python -m src.{{ cookiecutter.package_name }}" }
+tests = { cmd = "python -m pytest" }
 
 
 [tool.black]
@@ -119,11 +121,16 @@ markers = [
     "integration: mark test as integration test",
     "functional: mark test as functional test",
 ]
-addopts = ["--cov=src.{{ cookiecutter.package_name }}"]
+addopts = ["--cov=src.{{ cookiecutter.package_name }}", "--cov-report=xml"]
 
 [tool.coverage.report]
-fail_under = 0
-exclude_lines = ['if TYPE_CHECKING:', 'pragma: no cover']
+fail_under = 100
+
+exclude_lines = [
+    'if TYPE_CHECKING:',
+    'pragma: no cover',
+    'if __name__ == .__main__.:',
+]
 
 [tool.mypy]
 python_version = "{{ cookiecutter.python_version }}"

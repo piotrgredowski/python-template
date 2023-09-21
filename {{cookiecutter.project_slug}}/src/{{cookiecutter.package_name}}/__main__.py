@@ -1,6 +1,4 @@
-def main() -> None:
-    print("Hello from {{ cookiecutter.project_name }}!")
+from . import main  # pragma: no cover
 
-
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     main()
