@@ -1,0 +1,7 @@
+default_context:
+  author_name: 'John Doe'
+  author_email: 'john.doe@mail.com'
+  github_username: 'johndoe'
+  project_name: 'example-project'
+  project_short_description: 'A short description of the project'
+  python_version: '3.11'

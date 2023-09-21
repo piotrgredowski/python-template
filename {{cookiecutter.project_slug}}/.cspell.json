@@ -1,0 +1,15 @@
+{
+  "words": [
+    "loguru",
+    "tqdm",
+    "pydantic",
+    "dotenv",
+    "cookiecutter",
+    "cruft",
+    "icecream",
+    "pre-commit",
+    "{{ cookiecutter.project_slug }}",
+    "{{ cookiecutter.package_name }}"
+  ],
+  "ignorePaths": ["pyproject.toml", ".pre-commit-config.yaml", ".vscode/**/*.*", ".gitignore"]
+}
