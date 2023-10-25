@@ -1,6 +1,6 @@
-from hooks import formatters
-from hooks import git
-from hooks import vscode
+from . import formatters
+from . import git
+from . import vscode
 
 if __name__ == "__main__":
     print("Running post-gen hooks...")
