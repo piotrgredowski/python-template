@@ -39,7 +39,12 @@ def check_how_many_commits_exist():
 def get_commit_id_of_template_repo():
     old_path = os.getcwd()
     os.chdir(os.getenv("PWD", ""))
-    commit_id = subprocess.check_output("git rev-parse HEAD", shell=True).decode("utf-8").strip()
+    try:
+        commit_id = (
+            subprocess.check_output("git rev-parse HEAD", shell=True).decode("utf-8").strip()
+        )
+    except subprocess.CalledProcessError:
+        commit_id = None
     os.chdir(old_path)
     return commit_id
 

@@ -5,6 +5,6 @@
   "project_name": "Name of the project (will be shown e.g. as the title in the readme)",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
   "package_name": "{{ cookiecutter.project_slug.lower().replace('-', '_') }}",
-  "project_short_description": "A short description of the project",
-  "python_version": "3.11"
+  "project_short_description": "{{ cookiecutter.project_name.lower().replace(' ', '-') }} project",
+  "python_version": "3.12"
 }

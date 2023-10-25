@@ -18,13 +18,12 @@ requires-python = ">= {{ cookiecutter.python_version }}"
 [tool.rye]
 managed = true
 dev-dependencies = [
-    "black>=23.7.0",
-    "mypy>=1.4.1",
-    "pre-commit>=3.3.3",
-    "pytest>=7.4.0",
+    "mypy>=1.6.1",
+    "pre-commit>=3.5.0",
+    "pytest>=7.4.3",
     "pytest-cov>=4.1.0",
     "pytest-mock>=3.11.1",
-    "ruff>=0.0.282",
+    "ruff>=0.1.2",
 ]
 
 [tool.rye.scripts]
